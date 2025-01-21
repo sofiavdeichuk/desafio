@@ -1,0 +1,16 @@
+<div class="container">
+    <form action="/generate" method="post" id="generate_form">
+        <input type="hidden" name="count" id="count" value="{{count}}" />
+        <input type="submit" name="generate" id="generate" value="Generar empleados" />
+    </form>
+</div>
+
+<script>
+    document.getElementById('generate_form').addEventListener('submit', function (e) {
+        e.preventDefault()
+        const count = document.getElementById('count').value
+        const formAction = `/generate?count=${count}`
+        this.action = formAction
+        this.submit()
+    })
+</script>
